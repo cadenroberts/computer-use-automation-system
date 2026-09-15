@@ -1,0 +1,12 @@
+{"event": "start", "mode": "discovery", "goal": "compose email with subject hi and message body test", "url": "https://mail.google.com/mail/u/0/#inbox"}
+{"event": "llm_proposal", "actions": ["page.get_by_text('Compose', exact=True).first.click", "page.locator('textarea').first.fill('hi')", "page.locator('textarea').first.press('Enter')"]}
+{"event": "human_feedback", "feedback": "click only compose first"}
+{"event": "llm_proposal", "actions": ["page.get_by_text('Compose', exact=True).first.click"]}
+{"event": "human_approval", "approved": true, "stop_after_batch": false}
+{"event": "action", "step": 1, "action": "page.get_by_text('Compose', exact=True).first.click", "source": "llm", "status": "success"}
+{"event": "llm_proposal", "actions": ["page.locator('[aria-label=\"Subject\"]:visible').first.fill('hi')", "page.locator('[aria-label=\"Message Body\"]:visible').first.fill('test')"]}
+{"event": "human_approval", "approved": true, "stop_after_batch": true}
+{"event": "action", "step": 1, "action": "page.locator('[aria-label=\"Subject\"]:visible').first.fill('hi')", "source": "llm", "status": "success"}
+{"event": "action", "step": 2, "action": "page.locator('[aria-label=\"Message Body\"]:visible').first.fill('test')", "source": "llm", "status": "success"}
+{"event": "artifact_saved", "file": "<redacted>.json", "checkpoint": "actions_completed", "outputs": {}}
+{"event": "complete", "result": {"status": "success", "outputs": {}}}

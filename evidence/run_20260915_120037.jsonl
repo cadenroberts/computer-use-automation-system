@@ -1,0 +1,9 @@
+{"event": "start", "mode": "discovery", "goal": "search for emails from github.com", "url": "https://mail.google.com/mail/u/0/#inbox"}
+{"event": "llm_proposal", "actions": ["page.locator('[aria-label=\"Search mail\"]:visible').first.fill('from:github.com')"]}
+{"event": "human_approval", "approved": true, "stop_after_batch": false}
+{"event": "action", "step": 1, "action": "page.locator('[aria-label=\"Search mail\"]:visible').first.fill('from:github.com')", "source": "llm", "status": "success"}
+{"event": "llm_proposal", "actions": ["page.keyboard.press('Enter')"]}
+{"event": "human_approval", "approved": true, "stop_after_batch": true}
+{"event": "action", "step": 1, "action": "page.keyboard.press('Enter')", "source": "llm", "status": "success"}
+{"event": "evidence", "type": "failure_snapshot", "file": "<redacted>.png"}
+{"event": "complete", "result": {"status": "failure", "expected": "Gmail search results", "observed": "https://mail.google.com/mail/u/0/#inbox"}}

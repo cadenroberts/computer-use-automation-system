@@ -1,0 +1,29 @@
+{
+  "click compose": {
+    "version": 1,
+    "goal": "click compose",
+    "target": "mail.google.com",
+    "inputs": {},
+    "actions": [
+      "page.get_by_text('Compose', exact=True).first.click"
+    ],
+    "checkpoint": "actions_completed",
+    "outputs": {}
+  },
+  "compose email with subject {subject} and message body {message_body}": {
+    "version": 1,
+    "goal": "compose email with subject {subject} and message body {message_body}",
+    "target": "mail.google.com",
+    "inputs": {
+      "subject": "string",
+      "message_body": "string"
+    },
+    "actions": [
+      "page.get_by_text('Compose', exact=True).first.click",
+      "page.locator('[aria-label=\"Subject\"]:visible').first.fill({subject})",
+      "page.locator('[aria-label=\"Message Body\"]:visible').first.fill({message_body})"
+    ],
+    "checkpoint": "actions_completed",
+    "outputs": {}
+  }
+}

@@ -121,6 +121,10 @@ def checkpoint_for(goal, site):
 
 def get_result(page, checkpoint):
     if checkpoint == "youtube_search_results":
+        try:
+            page.locator("a#video-title").first.wait_for(state="visible", timeout=5000)
+        except PlaywrightTimeoutError:
+            pass
         links = page.locator("a#video-title").evaluate_all("x=>x.map(a=>a.href).filter(Boolean)")
         return {"status": "success", "outputs": {"links": links}} if links else {"status": "business_outcome", "outcome": "no_results", "outputs": {"links": []}}
     if checkpoint == "gmail_message_sent":
@@ -324,6 +328,8 @@ def main():
             else:
                 if replaying:
                     result = redact(get_result(page, checkpoint))
+                    if result["status"] == "failure":
+                        save_error_evidence(page, mode, run_id, run_log)
                     log_event(run_log, {"event": "complete", "result": result})
                     print(json.dumps(result, indent=2))
                     return
@@ -332,6 +338,7 @@ def main():
                     template, capability = build_capability(goal, actions, host, site)
                     result = redact(get_result(page, capability["checkpoint"]))
                     if result["status"] == "failure":
+                        save_error_evidence(page, mode, run_id, run_log)
                         log_event(run_log, {"event": "complete", "result": result})
                         print(json.dumps(result, indent=2))
                         return

@@ -1,0 +1,6 @@
+{"event": "start", "mode": "discovery", "goal": "click compose", "url": "https://mail.google.com/mail/u/0/#inbox?compose=new"}
+{"event": "llm_proposal", "actions": ["page.get_by_text('Compose', exact=True).first.click"]}
+{"event": "human_approval", "approved": true, "stop_after_batch": true}
+{"event": "action", "step": 1, "action": "page.get_by_text('Compose', exact=True).first.click", "source": "llm", "status": "success"}
+{"event": "artifact_saved", "file": "<redacted>.json", "checkpoint": "actions_completed", "outputs": {}}
+{"event": "complete", "result": {"status": "success", "outputs": {}}}

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "goal": "click compose",
+  "target": "mail.google.com",
+  "inputs": {},
+  "actions": [
+    "page.get_by_text('Compose', exact=True).first.click"
+  ],
+  "checkpoint": "actions_completed",
+  "outputs": {}
+}
