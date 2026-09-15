@@ -6,7 +6,7 @@ The implementation uses Playwright against a live Chrome session and a local Oll
 
 ## What it demonstrates
 
-- LLM-driven observe → decide → act discovery against a real UI
+- LLM-driven observation, decision, action discovery against a real UI
 - Human approval and feedback during discovery
 - Versioned, parameterized capability artifacts with typed inputs and outputs
 - Deterministic replay with no LLM decision-making
