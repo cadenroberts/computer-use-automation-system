@@ -1,0 +1,18 @@
+{
+  "search for {search_query} videos": {
+    "version": 1,
+    "goal": "search for {search_query} videos",
+    "target": "youtube.com",
+    "inputs": {
+      "search_query": "string"
+    },
+    "actions": [
+      "page.locator('[name=\"search_query\"]:visible').first.fill({search_query})",
+      "page.locator('[aria-label=\"Search\"]:visible').first.click"
+    ],
+    "checkpoint": "youtube_search_results",
+    "outputs": {
+      "links": "list[string]"
+    }
+  }
+}
